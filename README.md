@@ -23,8 +23,9 @@ The Python environments are managed using Conda, and experiments are managed usi
 
 The code repository is structured as follows:
 
-* `test`: Folder related to some of our unit tests
-* `sample`: Note that We ran many configurations with different random seeds, algorithms, and datasets; some sample configurations of the experiments are given below.
+* `data`: Folder containing the data files from NAS-Bench-101 and lpsolve.
+* `hdbo`: Folder containing our code
+* `sample`: Folder containing some sample configurations of the experiments are given below; Note that We ran many configurations with different random seeds, algorithms, and datasets.
    * `default.yml`: Sample experiment to check if your environment is installed correctly.
    * `syn-add-d.yml`: Sample synthetic additive (discrete) experiment
    * `syn-add-c.yml`: Sample synthetic additive (continuous) experiment
@@ -32,11 +33,10 @@ The code repository is structured as follows:
    * `nas.yml`: Sample NAS-Bench-101 experiment
    * `lp.yaml`: Sample lpsolve experiment
    * `ba-addgp.yaml`: Sample BayesOpt Attack experiment
-* `README.md`: This readme
+* `test`: Folder related to some of our unit tests
 * `MLproject`: MLflow project file, we are using mlflow to help organize our experiments
+* `README.md`: This readme
 * `hdbo.yml`: Conda file that is used internally by the MLflow project
-* `hdbo`: Folder containing our code
-* `data`: Folder containing the data files from NAS-Bench-101 and lpsolve.
 
 ## Setup
 
