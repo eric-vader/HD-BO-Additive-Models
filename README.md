@@ -31,8 +31,8 @@ The code repository is structured as follows:
    * `syn-add-c.yml`: Sample synthetic additive (continuous) experiment
    * `syn-fn.yml`: Sample synthetic function experiment
    * `nas.yml`: Sample NAS-Bench-101 experiment
-   * `lp.yaml`: Sample lpsolve experiment
-   * `ba-addgp.yaml`: Sample BayesOpt Attack experiment
+   * `lp.yml`: Sample lpsolve experiment
+   * `ba-addgp.yml`: Sample BayesOpt Attack experiment
 * `test`: Folder related to some of our unit tests
 * `MLproject`: MLflow project file, we are using mlflow to help organize our experiments
 * `README.md`: This readme
