@@ -1,12 +1,20 @@
-# High-Dimensional Bayesian Optimization via Tree-Structured Additive Models
+# High-Dimensional Bayesian Optimization via Tree-Structured Additive Models (AAAI 2021)
+
+Authors:
+
+1. Eric Han
+2. Ishank Arora
+3. Jonathan Scarlett
+
+This repository is accompanied by the AAAI 2021 publication.
 
 We implemented all algorithms in Python 3.8.3. 
 The Python environments are managed using Conda, and experiments are managed using [MLflow](https://www.mlflow.org), which allows convenient management of experiments.
 
 ## Acknowledgements
 
-1. The code included in `hdbo/febo` is taken from [LineBO](https://github.com/jkirschner42/LineBO). The paper accompanying the code is [Adaptive and Safe Bayesian Optimization in High Dimensions via One-Dimensional Subspaces](https://arxiv.org/abs/1902.03229).
-2. The code in this repository are derived from the code base from [High-Dimensional Bayesian Optimization via Additive Models with Overlapping Groups](https://arxiv.org/pdf/1802.07028.pdf). 
+1. The code in this repository are derived from the code base from [High-Dimensional Bayesian Optimization via Additive Models with Overlapping Groups](https://arxiv.org/pdf/1802.07028.pdf), supplied by Paul Rolland.
+2. The code included in `hdbo/febo` is taken from [LineBO](https://github.com/jkirschner42/LineBO). The paper accompanying the code is [Adaptive and Safe Bayesian Optimization in High Dimensions via One-Dimensional Subspaces](https://arxiv.org/abs/1902.03229).
 3. The code included in `hdbo/boattack` is taken from [BayesOpt_Attack](https://github.com/rubinxin/BayesOpt_Attack). The paper accompanying the code is [BayesOpt Adversarial Attack](https://openreview.net/pdf?id=Hkem-lrtvH).
 4. The NAS-Bench-101 datasets included in `data/fcnet` is taken from [nas_benchmarks](https://github.com/automl/nas_benchmarks). The paper accompanying the code is [NAS-Bench-101: Towards Reproducible Neural Architecture Search](https://arxiv.org/pdf/1902.09635.pdf).
 5. The lpsolve datasets included in `data/mps` is taken from the benchmark dataset in [MIPLIB 2017](https://miplib.zib.de/download.html). 
