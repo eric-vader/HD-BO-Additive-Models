@@ -1,0 +1,33 @@
+acq_type: LCB
+algorithm_type:
+  Algorithm:
+    algorithm: BoAttack
+    algorithm_random_seed: 1
+    eps: -1
+    exploration_weight: 'lambda t: 0.5 * np.log(2*t)'
+    graphSamplingNumIter: 100
+    initial_kernel_params:
+      lengthscale: 0.1
+      variance: 0.5
+    learnDependencyStructureRate: 15
+    lengthscaleNumIter: 2
+    max_eval: 1000
+    noise_var: 1.0e-10
+    nsubspaces: 12
+    param_n_iter: 16
+batch_size: 1
+data_type:
+  BayesianAttack:
+    dim_reduction: BILI
+    fn_noise_var: 1.0e-10
+    grid_size: 150
+    img_offset: 7
+    low_dim: 196
+    n_itrs: 1000
+    nn_data: Mnist
+    seed: 0
+    tg: 6
+model_type: ADDGPLD
+n_iter: 1000
+n_rand: 30
+update_freq: 5

@@ -1,0 +1,7 @@
+name: HDBO
+
+conda_env: hdbo-test.yml
+
+entry_points:
+  main:
+    command: "pytest -n 12 ../hdbo"
