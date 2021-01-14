@@ -1,14 +1,12 @@
 # High-Dimensional Bayesian Optimization via Tree-Structured Additive Models (AAAI 2021)
 
-[arXiv Pre-Print](https://arxiv.org/abs/2012.13088)
-
 Authors:
 
 1. Eric Han
 2. Ishank Arora
 3. Jonathan Scarlett
 
-This repository is accompanied by the AAAI 2021 publication.
+This repository is accompanied by the AAAI 2021 publication -- [arXiv Pre-Print](https://arxiv.org/abs/2012.13088).
 
 We implemented all algorithms in Python 3.8.3. 
 The Python environments are managed using Conda, and experiments are managed using [MLflow](https://www.mlflow.org), which allows convenient management of experiments.
