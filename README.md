@@ -1,5 +1,7 @@
 # High-Dimensional Bayesian Optimization via Tree-Structured Additive Models (AAAI 2021)
 
+[arXiv Pre-Print](https://arxiv.org/abs/2012.13088)
+
 Authors:
 
 1. Eric Han
