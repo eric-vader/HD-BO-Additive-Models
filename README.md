@@ -6,7 +6,7 @@ Authors:
 2. Ishank Arora
 3. Jonathan Scarlett
 
-This repository is accompanied by the AAAI 2021 publication -- [arXiv Pre-Print](https://arxiv.org/abs/2012.13088).
+This repository is accompanied by the [AAAI 2021 publication](https://ojs.aaai.org/index.php/AAAI/article/view/16933/16740), [arXiv Pre-Print](https://arxiv.org/abs/2012.13088).
 Cite using our AAAI2021 article:
 ```
 @article{Han_Arora_Scarlett_2021, 
