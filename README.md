@@ -6,7 +6,7 @@ Authors:
 2. Ishank Arora
 3. Jonathan Scarlett
 
-This repository is accompanied by the AAAI 2021 publication -- [arXiv Pre-Print](https://arxiv.org/abs/2012.13088).
+This repository is accompanied by the [AAAI 2021 publication](https://ojs.aaai.org/index.php/AAAI/article/view/16933/16740), [arXiv Pre-Print](https://arxiv.org/abs/2012.13088).
 Cite using our AAAI2021 article:
 ```
 @article{Han_Arora_Scarlett_2021, 
@@ -21,10 +21,6 @@ year={2021},
 month={May}, 
 pages={7630-7638}}
 ```
-
-We implemented all algorithms in Python 3.8.3. 
-The Python environments are managed using Conda, and experiments are managed using [MLflow](https://www.mlflow.org), which allows convenient management of experiments.
-
 ## Acknowledgements
 
 1. The code in this repository are derived from the code base from [High-Dimensional Bayesian Optimization via Additive Models with Overlapping Groups](https://arxiv.org/pdf/1802.07028.pdf), supplied by Paul Rolland.
@@ -54,6 +50,8 @@ The code repository is structured as follows:
 
 ## Setup
 
+We implemented all algorithms in Python 3.8.3. 
+The Python environments are managed using Conda, and experiments are managed using [MLflow](https://www.mlflow.org), which allows convenient management of experiments.
 We have included code from data from external sources in our repository for the ease of setup. 
 
 Minimum System requirements:
