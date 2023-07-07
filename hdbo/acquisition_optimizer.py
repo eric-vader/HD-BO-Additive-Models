@@ -22,7 +22,7 @@ class MPAcquisitionOptimizer(AcquisitionOptimizer):
     """
     Class for optimizing the acquisition function in the considering that is of the form : f(x1,x2,x3,x4) = f1(x1,x2) + f2(x3) + f3(x4)
     """
-    def __init__(self, domain, graph_function, X, mlflow_logging, max_eval, acq_opt_restarts):
+    def __init__(self, domain, graph_function, X, mlflow_logging, max_eval, acq_opt_restarts=10):
         super(MPAcquisitionOptimizer, self).__init__(domain)
         self.domain = domain
         self.max_eval = max_eval
