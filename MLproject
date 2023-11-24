@@ -5,11 +5,11 @@ conda_env: hdbo.yml
 entry_points:
   main:
     parameters:
-      param_file: {type: path, default: sample/default.yml}
+      param_file: {type: str, default: sample/default.yml}
     command: "LOGGING_TYPE=local CUDA_VISIBLE_DEVICES=-1 nice -1 python hdbo/main.py {param_file}"
   start:
     parameters:
-      param_file: {type: path}
+      param_file: {type: str}
     command: "LOGGING_TYPE=server CUDA_VISIBLE_DEVICES=-1 python hdbo/main.py {param_file} /dev/shm"
   stop:
     parameters:
