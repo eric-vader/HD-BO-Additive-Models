@@ -1,4 +1,6 @@
 from GPyOpt.acquisitions import AcquisitionLCB
+import numpy as np
+
 
 class MyAcquisitionLCB(AcquisitionLCB):
     def __init__(self, model, kernel, variables):
@@ -10,6 +12,8 @@ class MyAcquisitionLCB(AcquisitionLCB):
     # Special computation to compute the exact kernel ad it relies on the model
     def _compute_acq(self, x):
         m, s = self.model.predict_with_kernel(x, self.kernel) 
+        if np.isinf(self.model.exploration_weight()):
+            return s
         f_acqu = -m + self.model.exploration_weight() * s
         return f_acqu
 

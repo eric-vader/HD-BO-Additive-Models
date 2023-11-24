@@ -41,6 +41,7 @@ import yaml
 import sys
 import hashlib
 import json
+import boto3
 
 # Argument Constants
 syn_graphtype_list = datasets.Synthetic.loader_ids
@@ -48,10 +49,47 @@ nas_bench_list = datasets.NAS.loader_ids
 # Check avaliable fcnet benchmark files
 fcnet_benchmark_list = Config().list_fcnet()
 
+MLFLOW_S3_ENDPOINT_URL = os.getenv('MLFLOW_S3_ENDPOINT_URL')
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+
 # Must return a 
 def args_parse():
 
-    args_dict = yaml.load(open(sys.argv[1]), yaml.FullLoader)
+
+    # We guess if config is a file or not
+    exp_config = sys.argv[1]
+    extension = os.path.splitext(exp_config)[-1]
+
+    if extension == ".yml":
+        if not os.path.isfile(exp_config):
+            raise FileNotFoundError(f"Cannot experiment file at {exp_config}")
+        logging.info(f"Load exp file from {exp_config}")
+        args_dict = yaml.load(open(exp_config), yaml.FullLoader)
+    else:
+        endpoint_url = MLFLOW_S3_ENDPOINT_URL
+        aws_access_key_id = AWS_ACCESS_KEY_ID
+        aws_secret_access_key = AWS_SECRET_ACCESS_KEY
+        jobs_port='9000'
+        region_name='us-east-1'
+        signature_version='s3v4'
+
+        if not endpoint_url:
+            endpoint_url = "http://scarlettgpu2.d2.comp.nus.edu.sg"
+            aws_access_key_id = "miniomlflow"
+            aws_secret_access_key = "R9RqzmC1"
+
+        s3 = boto3.client('s3', 
+            endpoint_url=endpoint_url+':'+jobs_port,
+            aws_access_key_id=aws_access_key_id,
+            aws_secret_access_key=aws_secret_access_key,
+            config=boto3.session.Config(signature_version=signature_version),
+            region_name=region_name)
+        
+        obj = s3.get_object(Bucket='mlflow-jobs', Key=exp_config)
+        args_dict = yaml.load(obj['Body'].read().decode('utf-8'), yaml.FullLoader)
+
+    # args_dict = yaml.load(open(sys.argv[1]), yaml.FullLoader)
     args_dict["hash_exe"] = hashlib.sha1(json.dumps(args_dict, sort_keys=True).encode()).hexdigest()
 
     which_datas = list(args_dict["data_type"].keys())
