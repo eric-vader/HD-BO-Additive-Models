@@ -56,6 +56,7 @@ def main(mlflow_logger):
     Loader = MetaDataTypeLoader.get_loader_constructor(**args)
     dataLoader = Loader(**args)
     fn, soln = dataLoader.load()
+    fn.layout = dataLoader.layout
     
     if soln == None:
         logging.info("Computing f_min")

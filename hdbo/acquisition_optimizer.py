@@ -94,6 +94,7 @@ class MPAcquisitionOptimizer(AcquisitionOptimizer):
                 #logging.info("Zooming used")
                 target_grid = -(self.max_eval)
                 subdiv_count = 0
+                # i = 0
                 while True:
                     is_stop = True
                     # Now we do the partitioning
@@ -108,6 +109,8 @@ class MPAcquisitionOptimizer(AcquisitionOptimizer):
                             domain_chunks.append([ np.array([d]) for d in domain ])
                    
                     self._domains = [ [ np.random.choice(d, 1)[0] for d in domain_chunk] for domain_chunk in domain_chunks ]
+                    # i+=1
+                    # print(i, np.array(self._domains).shape)
                     x_best, fmin = self._optimize(f)
                     self._domains = []
                     

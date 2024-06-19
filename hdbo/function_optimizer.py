@@ -124,11 +124,22 @@ class GraphOptimizer(object):
         best_graph = h.make_graph()
         best_dim_params = h.dimensional_parameters
 
-        nx.draw(best_graph, cmap = plt.get_cmap('jet'), with_labels=True)
+        nx.draw(best_graph, cmap = plt.get_cmap('jet'), with_labels=True, pos=self.layout)
         plt.savefig(Config().learnt_graphs_file('{:05d}.png'.format(self.my_learnt_graph_iter_count)))
         plt.clf()
         self.my_learnt_graph_iter_count += 1
         logging.info("New graph : {}".format(best_graph.edges()))
+
+        # G = best_graph
+        # cent=nx.edge_betweenness_centrality(G)
+        # node_pos=nx.circular_layout(G) #Any layout will work here, including nx.spring_layout(G)
+        # nx.draw_networkx_nodes(G,pos=node_pos, with_labels=True)#draw nodes
+        # for i, item in enumerate(cent.items()):
+        #     key,value = item
+        #     nx.draw_networkx_edges(G,pos=node_pos,edgelist=[key],alpha=dim_var[i],width=5)
+        # plt.savefig(Config().learnt_graphs_file('_{:05d}.png'.format(self.my_learnt_graph_iter_count)))
+        # plt.clf()
+        # print(dim_var)
 
         # Perform the update
         graph_function.graph = best_graph

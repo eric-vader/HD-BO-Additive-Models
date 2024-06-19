@@ -512,7 +512,15 @@ class SyntheticLoader(Loader):
         # Which will need to be reshaped to n_functions * N * N
         return fun.reshape(target_shape)
     def log_true_graph(self):
-        nx.draw(self.get_nx_graph(), cmap = plt.get_cmap('jet'), with_labels=True)
+
+        # self.layout = dict()
+        # for i in range(3):
+        #     for j in range(3):
+        #         self.layout[i*3+j] = (i,j)
+        # print(self.layout)
+        self.layout = nx.spring_layout(self.get_nx_graph(), iterations=10000, seed=6)
+        # print(self.layout)
+        nx.draw(self.get_nx_graph(), cmap = plt.get_cmap('jet'), with_labels=True, pos=self.layout)
         plt.savefig(Config().data_file('ground_truth_graph.png'))
         plt.clf()
     def _load(self):

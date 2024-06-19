@@ -474,9 +474,11 @@ class BayesianOptimization(GADDUCBAlgorithm):
     def make_fn_optimizer(self):
         FnOptimizer = self.FnOptimizer()
         # Update M and max_group_size just in case its not specified
-        return FnOptimizer(graphSamplingNumIter=self.graphSamplingNumIter, lengthscaleNumIter=self.lengthscaleNumIter, cycles=self.cycles, 
+        f = FnOptimizer(graphSamplingNumIter=self.graphSamplingNumIter, lengthscaleNumIter=self.lengthscaleNumIter, cycles=self.cycles, 
             fully_optimize_lengthscales=self.fully_optimize_lengthscales, p=self.p, M=self.M, max_group_size=self.max_group_size, sigma2=self.noise_var, 
             opt_restart=self.opt_restart, param_exploration=self.param_exploration)
+        f.layout = self.fn.layout
+        return f
     def get_GraphFunction(self):
         return GraphFunction
 
